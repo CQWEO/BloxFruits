@@ -266,7 +266,7 @@ mainopens.Parent = mainopen
  local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
  
  local ZENHUB = Instance.new("ScreenGui")
- ZENHUB.Name = "UniverseHub"
+ ZENHUB.Name = "YOU HUB"
  ZENHUB.Parent = game.CoreGui
  ZENHUB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
  
@@ -321,15 +321,15 @@ mainopens.Parent = mainopen
  Name.TextSize = 14.000
  
  local Hub = Instance.new("TextLabel")
- Hub.Name = "Hub"
+ Hub.Name = "Blox Fruit"
  Hub.Parent = Top
- Hub.BackgroundColor3 = Color3.fromRGB(224,224,224)
+ Hub.BackgroundColor3 = Color3.new(7,9.9)
  Hub.BackgroundTransparency = 1.000
  Hub.Position = UDim2.new(0, 110, 0, 0)
  Hub.Size = UDim2.new(0, 81, 0, 27)
  Hub.Font = Enum.Font.Code
- Hub.Text = "Hub"
- Hub.TextColor3 = Color3.fromRGB(255,0,255)
+ Hub.Text = "Blox Fruit"
+ Hub.TextColor3 = Color3.new(7,9.9)
  Hub.TextSize = 16.000
  Hub.TextXAlignment = Enum.TextXAlignment.Left
  
@@ -3799,7 +3799,7 @@ end)
 
  
 --------------------------------------------------------------------
-local Library = Update:Window("Universe  ","")
+local Library = Update:Window("You Hub | ","")
 ------------------------------------------
 
 spawn(function()
@@ -4208,16 +4208,16 @@ end)
 --------------------------
 local Main = Library:Tab("Main","rbxassetid://11446825283")
 local Setting = Library:Tab("Settings","rbxassetid://11446835336")
-local Weapon = Library:Tab("Weapons","rbxassetid://11446859498")
+local Weapon = Library:Tab("Murderous","rbxassetid://11446859498")
 local Race = Library:Tab("Race V4","rbxassetid://11446900930")
 local Stats = Library:Tab("Stats","rbxassetid://11447069304")
-local P = Library:Tab("Player","rbxassetid://11446900930")
-local Teleport = Library:Tab("Teleport","rbxassetid://11446920523")
-local Dungeon = Library:Tab("Dungeon","rbxassetid://11446957539")
-local DevilFruit = Library:Tab("Fruit+Esp","rbxassetid://11446965348")
+local P = Library:Tab("Combat PvP","rbxassetid://11446900930")
+local Teleport = Library:Tab("Tp","rbxassetid://11446920523")
+local Dungeon = Library:Tab("Raid","rbxassetid://11446957539")
+local DevilFruit = Library:Tab("Esp+Fruits","rbxassetid://11446965348")
 local Shop = Library:Tab("Shop","rbxassetid://6031265976")
 local Misc = Library:Tab("Misc","rbxassetid://11447063791")
-local Op = Library:Tab("Status", "rbxassetid://7040410130")
+local Op = Library:Tab("Statue", "rbxassetid://7040410130")
 --------------------------------------------------------------------
 
 Setting:Seperator(" Setting ")
@@ -4538,9 +4538,9 @@ end)
 		
 		spawn(function()
 			while true do
-				wait(1)
+				wait(0.1)
 				_G.AttackDelay = 0.1
-				wait(9)
+				wait(0.5)
 				_G.AttackDelay = 0.01
 			end
 		end)
@@ -4581,11 +4581,11 @@ end)
 		end)
 		
 		spawn(function()
-			while wait(0.5) do
+			while wait(0.01) do
 				pcall(function()
 					if _G.FastAttack2 then
 						repeat
-							wait(0.01)
+							wait(0.0001)
 							AttackNoCD()
 						until not _G.FastAttack2
 					end
@@ -4629,7 +4629,7 @@ spawn(function()
  end
  end)
 
-Setting:Toggle("White Screen [ Booster FPS ]",_G.WhiteScreen,function(value)
+Setting:Toggle("White Screen",_G.WhiteScreen,function(value)
  _G.WhiteScreen = value
 
  if _G.WhiteScreen == true then
@@ -4757,7 +4757,7 @@ local function DisablePerformanceMode()
     performanceBackup = {}
 end
 
-Setting:Toggle("Boost FPS",_G.BoostFPS,function(value)
+Setting:Toggle("Remove Effect",_G.BoostFPS,function(value)
 	_G.BoostFPS = value
    
 	if _G.BoostFPS == true then
@@ -4803,7 +4803,7 @@ local GameTime = math.floor(workspace.DistributedGameTime+0.5)
 local Hour = math.floor(GameTime/(60^2))%24
 local Minute = math.floor(GameTime/(60^1))%60
 local Second = math.floor(GameTime/(60^0))%60
-Time:Set("[GameTime] : Hours : "..Hour.." Minutes : "..Minute.." Seconds : "..Second)
+Time:Set("Hours : "..Hour.." Minutes : "..Minute.." Seconds : "..Second..)
 end
 
 spawn(function()
@@ -4818,7 +4818,7 @@ Client = Main:Label1("Client")
 
 function UpdateClient()
 local Fps = workspace:GetRealPhysicsFPS()
-Client:Refresh("[Fps] : "..Fps)
+Client:Refresh("[FPS] : "..Fps..)
 end
 
 spawn(function()
@@ -4831,7 +4831,7 @@ Client1 = Main:Label1("Client")
 
 function UpdateClient1()
 local Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-Client1:Refresh("[Ping] : "..Ping)
+Client1:Refresh("[MS] : "..Ping..)
 end
 
 spawn(function()
@@ -5865,10 +5865,10 @@ spawn(function()
 			function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/250,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Map.MysticIsland.PrimaryPart.CFrame*CFrame.new(0,250,0))
 			else
 				game.StarterGui:SetCore("SendNotification", {
-					Title = "Universe Hub";
-					Text = "Mirage not Found!";
+					Title = "You Hub";
+					Text = "Mirage not Found";
 					Icon = "http://www.roblox.com/asset/?id=11818627057";
-					Duration = 3;
+					Duration = 5;
 					})
 			if _G.MirageHop then
 			wait(10)
@@ -5962,7 +5962,7 @@ Main:Button("Check Bone", function()
 	local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/EITAPORRA2/BloxFruits/main/Notification%20Holder"))()
 	wait(0.5)
 	Notification:Notify(
-	   {Title = "Universe HUB", Description = ("Your Bone : "..(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Check")))},
+	   {Title = "You Hub", Description = ("Your Bone : "..(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Check")))},
 	   {OutlineColor = Color3.fromRGB(255, 0, 255),Time = 5, Type = "option"},
 	   {Image = "https://i.pinimg.com/564x/08/25/06/082506876327d31cb742bdfa55ebef87.jpg", ImageColor = Color3.fromRGB(255, 0, 0), Callback = function(State) print(tostring(State)) end}
 	)
@@ -6019,7 +6019,7 @@ local NotificationHolder = loadstring(game:HttpGet("https://raw.githubuserconten
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/EITAPORRA2/BloxFruits/main/Notification%20Holder.lua"))()
 wait(1)
 Notification:Notify(
-   {Title = "Universe HUB", Description = "You Have Max Observation"},
+   {Title = "You Hub", Description = "You Have Max Observation"},
    {OutlineColor = Color3.fromRGB(255, 0, 255),Time = 5, Type = "option"},
    {Image = "https://i.pinimg.com/564x/08/25/06/082506876327d31cb742bdfa55ebef87.jpg", ImageColor = Color3.fromRGB(255, 0, 0), Callback = function(State) print(tostring(State)) end}
 )
@@ -9670,7 +9670,8 @@ chip = {
 	"Magma",
 	"Human: Buddha",
 	"Sand",
-	"Bird: Phoenix"
+	"Bird: Phoenix",
+        "Dough",
 }
 
 Dungeon:Dropdown("Select Dungeon",chip,function(value)
@@ -9946,8 +9947,10 @@ end
   "Quake-Quake",
   "Human-Human: Buddha",
   "String-String",
+  "Sound-Sound",
   "Bird-Bird: Phoenix",
   "Rumble-Rumble",
+  "Mammoth-Mammoth",
   "Paw-Paw",
   "Gravity-Gravity",
   "Dough-Dough",
