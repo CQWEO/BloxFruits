@@ -4206,18 +4206,7 @@ spawn(function()
 end)
 
 --------------------------
-local Main = Library:Tab("Main","rbxassetid://11446825283")
-local Setting = Library:Tab("Settings","rbxassetid://11446835336")
-local Weapon = Library:Tab("Weapons","rbxassetid://11446859498")
-local Race = Library:Tab("Race V4","rbxassetid://11446900930")
-local Stats = Library:Tab("Stats","rbxassetid://11447069304")
 local P = Library:Tab("Player","rbxassetid://11446900930")
-local Teleport = Library:Tab("Teleport","rbxassetid://11446920523")
-local Dungeon = Library:Tab("Dungeon","rbxassetid://11446957539")
-local DevilFruit = Library:Tab("Fruit+Esp","rbxassetid://11446965348")
-local Shop = Library:Tab("Shop","rbxassetid://6031265976")
-local Misc = Library:Tab("Misc","rbxassetid://11447063791")
-local Op = Library:Tab("Status", "rbxassetid://7040410130")
 --------------------------------------------------------------------
 
 Setting:Seperator(" Setting ")
@@ -4237,7 +4226,7 @@ spawn(function()
   end)
  end)
 
-Setting:Toggle("Anti AFK",true,function(value)
+P:Toggle("Anti AFK",true,function(value)
  _G.AFK = value
  end)
 
@@ -4396,7 +4385,7 @@ if game:GetService("ReplicatedStorage").Effect.Container:FindFirstChild("Respawn
 	game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy()
 end
 	
-Setting:Toggle("Bring Mob [Extra]",true,function(value)
+P:Toggle("Bring Mob [Extra]",true,function(value)
  _G.BringExtra = value
 end)
 
@@ -4493,7 +4482,7 @@ end)
 			end
 		end
 		
-		Setting:Toggle("Fast Attack [Safe]",true,function(value)
+		P:Toggle("Fast Attack [Safe]",true,function(value)
 	 	_G.FastAttack = value
 		   end)
 		   		   
@@ -4543,7 +4532,7 @@ end)
 		
 -- [[ Properties ]]
 
-Setting:Toggle("Auto Ken Haki",_G.Auto_Ken,function(vu)
+P:Toggle("Auto Ken Haki",_G.Auto_Ken,function(vu)
 	_G.Auto_Ken = vu
 end)
 spawn(function()
@@ -4557,11 +4546,11 @@ spawn(function()
 	end
 end)
 
-Setting:Toggle("Auto Click",true,function(value)
+P:Toggle("Auto Click",true,function(value)
  _G.click = value
 end)
 
-Setting:Toggle("Disabled Damage Text",_G.DisableDamage,function(value)
+P:Toggle("Disabled Damage Text",_G.DisableDamage,function(value)
  _G.DisableDamage = value
 end)
 
@@ -4577,7 +4566,7 @@ spawn(function()
  end
  end)
 
-Setting:Toggle("White Screen",_G.WhiteScreen,function(value)
+P:Toggle("White Screen",_G.WhiteScreen,function(value)
  _G.WhiteScreen = value
 
  if _G.WhiteScreen == true then
@@ -4705,7 +4694,7 @@ local function DisablePerformanceMode()
     performanceBackup = {}
 end
 
-Setting:Toggle("Boost FPS",_G.BoostFPS,function(value)
+P:Toggle("Boost FPS",_G.BoostFPS,function(value)
 	_G.BoostFPS = value
    
 	if _G.BoostFPS == true then
@@ -4729,7 +4718,7 @@ Setting:Slider1("Kill Health [For Mastery]",1,100,25,function(value)
 end)
 end
 
-Setting:Toggle("Skill Z",true,function(a)
+P:Toggle("Skill Z",true,function(a)
 		_G.SkillZ = a
 	end)
 	Setting:Toggle("Skill X",true,function(a)
@@ -4744,7 +4733,7 @@ Setting:Toggle("Skill Z",true,function(a)
 
 Main:Seperator(" Server ")
 
-Time = Main:Label("Executer Time")
+Time = P:Label("Executer Time")
 
 function UpdateTime()
 local GameTime = math.floor(workspace.DistributedGameTime+0.5)
@@ -4766,7 +4755,7 @@ Client = Main:Label1("Client")
 
 function UpdateClient()
 local Fps = workspace:GetRealPhysicsFPS()
-Client:Refresh("[Fps] : "..Fps)
+Client:Refresh("[FPS] : "..Fps)
 end
 
 spawn(function()
@@ -6047,11 +6036,11 @@ Notification:Notify(
 			end
 		end)
 	
-		Main:Toggle("Rainbow Haki",false,function(value)
+		P:Toggle("Rainbow Haki",false,function(value)
 			RainbowHaki = value
 		end)
 	
-		Main:Toggle("Rainbow Yoru",false,function(value)
+		P:Toggle("Rainbow Yoru",false,function(value)
 			RainbowYoru = value
 		end)
 	
@@ -10908,7 +10897,7 @@ Misc:Seperator(" Player Misc ")
         end
     end)
 
-Misc:Toggle("No Clip",_G.No_clip,function(value)
+P:Toggle("No Clip",_G.No_clip,function(value)
  _G.No_clip = value
 end)
 
@@ -10967,16 +10956,16 @@ end
         end)
     end)
 
-Misc:Toggle("Dodge No Cooldown",false,function(value)
+P:Toggle("Dodge No Cooldown",false,function(value)
         nododgecool = value
         NoDodgeCool()
     end)
     
-    Misc:Toggle("Auto Active Race V3",_G.AutoAgility,function(value)
+    P:Toggle("Auto Active Race V3",_G.AutoAgility,function(value)
         _G.AutoAgility = value
     end)
 
-	Misc:Toggle("Auto Active Race V4",_G.AutoAgility1,function(value)
+	P:Toggle("Auto Active Race V4",_G.AutoAgility1,function(value)
         _G.AutoAgility1 = value
     end)
 
@@ -11001,7 +10990,7 @@ Misc:Toggle("Dodge No Cooldown",false,function(value)
 	end)
 	end)
     
-    Misc:Toggle("Infinite Ability",false,function(value)
+    P:Toggle("Infinite Ability",false,function(value)
         InfAbility = value
         if value == false then
             game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
@@ -11016,7 +11005,7 @@ Misc:Toggle("Dodge No Cooldown",false,function(value)
         end
     end)
     
-    Misc:Toggle("Infinite Obversation Range",getgenv().InfiniteObRange,function(value)
+    P:Toggle("Infinite Obversation Range",getgenv().InfiniteObRange,function(value)
         getgenv().InfiniteObRange = value
         local VS = game:GetService("Players").LocalPlayer.VisionRadius.Value
         while getgenv().InfiniteObRange do
@@ -11035,7 +11024,7 @@ Misc:Toggle("Dodge No Cooldown",false,function(value)
         end
     end)
     
-    Misc:Toggle("Infinite Geppo",getgenv().InfGeppo,function(value)
+    P:Toggle("Infinite Geppo",getgenv().InfGeppo,function(value)
         getgenv().InfGeppo = value
     end)
     
@@ -11061,7 +11050,7 @@ Misc:Toggle("Dodge No Cooldown",false,function(value)
         end
     end)
     
-    Misc:Toggle("Infinite Soru",getgenv().InfSoru,function(value)
+    P:Toggle("Infinite Soru",getgenv().InfSoru,function(value)
         getgenv().InfSoru = value
     end)
     
@@ -11087,12 +11076,12 @@ Misc:Toggle("Dodge No Cooldown",false,function(value)
         end
     end)
     
-    Misc:Toggle("Walk on Water",true,function(value)
+    P:Toggle("Walk on Water",true,function(value)
         _G.WalkWater = value
     end)
     
     if World2 then
-		Misc:Button("Remove Lava",function()
+	 P:Button("Remove Lava",function()
 			for i,v in pairs(game.Workspace:GetDescendants()) do
 				if v.Name == "Lava" then   
 					v:Destroy()
@@ -11132,10 +11121,10 @@ spawn(function()
     end)
     
         
-    Misc:Button("Unlock FPS",function()
-        setfpscap(100)
+    P:Button("Unlock FPS",function()
+        setfpscap(10000)
     end)
-Misc:Button("Invisible",function()
+P:Button("Invisible",function()
         game:GetService("Players").LocalPlayer.Character.LowerTorso:Destroy()
     end)
 
