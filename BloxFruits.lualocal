@@ -4395,32 +4395,8 @@ end
 if game:GetService("ReplicatedStorage").Effect.Container:FindFirstChild("Respawn") then
 	game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy()
 end
-
-Setting:Toggle("Bring Mob [Normal]",true,function(value)
- _G.BringNormal = value
-end)
-
-spawn(function()
-    game:GetService("RunService").Heartbeat:Connect(function() CheckQuest()
-		pcall(function()
-			if _G.BringNormal then
-				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-					if _G.Auto_Farm_Level and StartMagnet and v.Name == Ms and (v.HumanoidRootPart.Position - PosMon.Position).magnitude <= 350 then
-						v.HumanoidRootPart.CFrame = PosMon
-						v.HumanoidRootPart.CanCollide = false
-						v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-						if v.Humanoid:FindFirstChild("Animator") then
-							v.Humanoid.Animator:Destroy()
-						end
-						sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  math.huge)
-					end
-				end
-			end
-		end)
-    end)
-	end)
 	
-Setting:Toggle("Bring Mob [Extra+Lag]",false,function(value)
+Setting:Toggle("Bring Mob [Extra]",true,function(value)
  _G.BringExtra = value
 end)
 
@@ -4517,36 +4493,8 @@ end)
 			end
 		end
 		
-		Setting:Toggle("Super Fast Attack [Kickable]", false, function(value)
-			_G.FastAttack1 = value
-		end)
-		
-		_G.AttackDelay = 0.1
-
-		spawn(function()
-			while wait(0.5) do
-				pcall(function()
-					if _G.FastAttack1 then
-						repeat
-							wait(_G.AttackDelay)
-							AttackNoCD()
-						until not _G.FastAttack1
-					end
-				end)
-			end
-		end)
-		
-		spawn(function()
-			while true do
-				wait(1)
-				_G.AttackDelay = 0.1
-				wait(9)
-				_G.AttackDelay = 0.01
-			end
-		end)
-
 		Setting:Toggle("Fast Attack [Safe]",true,function(value)
-			_G.FastAttack = value
+	 	_G.FastAttack = value
 		   end)
 		   		   
 		   require(game.ReplicatedStorage.Util.CameraShaker):Stop()
@@ -4561,7 +4509,7 @@ end)
 					   if typeof(xShadowx) == "table" then
 						   pcall(function()
 							   xShadowx.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
-							   xShadowx.activeController.timeToNextAttack = 0
+							   xShadowx.activeController.timeToNextAttack = 0.75
 							   xShadowx.activeController.hitboxMagnitude = 200
 							   xShadowx.activeController.active = false
 							   xShadowx.activeController.timeToNextBlock = 0
@@ -4576,7 +4524,7 @@ end)
 			   end)
 		   end)
 		
-		   Setting:Toggle("HYPER FAST ATTACK [KICKABLE]", false, function(value)
+		   Setting:Toggle("SUPER FAST ATTACK [KICKABLE]", false, function(value)
 			_G.FastAttack2 = value
 		end)
 		
@@ -4609,7 +4557,7 @@ spawn(function()
 	end
 end)
 
-Setting:Toggle("Auto Click",false,function(value)
+Setting:Toggle("Auto Click",true,function(value)
  _G.click = value
 end)
 
@@ -4629,7 +4577,7 @@ spawn(function()
  end
  end)
 
-Setting:Toggle("White Screen [ Booster FPS ]",_G.WhiteScreen,function(value)
+Setting:Toggle("White Screen",_G.WhiteScreen,function(value)
  _G.WhiteScreen = value
 
  if _G.WhiteScreen == true then
@@ -4803,7 +4751,7 @@ local GameTime = math.floor(workspace.DistributedGameTime+0.5)
 local Hour = math.floor(GameTime/(60^2))%24
 local Minute = math.floor(GameTime/(60^1))%60
 local Second = math.floor(GameTime/(60^0))%60
-Time:Set("[GameTime] : Hours : "..Hour.." Minutes : "..Minute.." Seconds : "..Second)
+Time:Set(" Hours : "..Hour.." Minutes : "..Minute.." Seconds : "..Second)
 end
 
 spawn(function()
@@ -4891,11 +4839,6 @@ spawn(function()
         end
     end)
 end)
-
-Main:Button("Stop Teleport",function()
-  topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
-  _G.Clip = false
-  end)
 
 Main:Seperator(" Main ")
 
@@ -5886,7 +5829,7 @@ end)
 
 Main:Seperator(" Chest ")
 
-Main:Toggle("Auto Chest Fast",false,function(vu)
+Main:Toggle("Auto Chest Fast [KICKBLE]",false,function(vu)
 	_G.ChestBypass = vu
 end)
 
